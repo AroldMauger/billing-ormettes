@@ -1,0 +1,756 @@
+/* index.html */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.main-in-landingpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.big-container-in-login {
+    background: #e2087b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+}
+
+
+.login-button {
+    border: none;
+    background: #011924;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 40px;
+}
+
+.login-button:hover {
+    background-color: #FF4500;
+}
+.login-button-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.login-form {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 40%;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.input-in-login-form {
+    height: 3.5rem;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    border: 1px solid #ccc;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.input-in-login-form:focus {
+    outline: none;
+    border-color: #FF6000;
+}
+
+#submit-login {
+    border: none;
+    background: #000000;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#submit-login:hover {
+    background-color: #FF4500;
+}
+
+.closebutton_container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.closebutton_modal {
+    border: none;
+    padding: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    font-size: 2rem;
+    color: #333;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.closebutton_modal:hover {
+    background-color: #d63031;
+}
+
+.instruction_modal {
+    color: #333;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.inputs-container-login label {
+    font-size: 1.4rem;
+}
+/* dashboard.html */
+
+.header-dashboard {
+    display: flex;
+    height: 10%;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0e0c0a;
+    color: #fff;
+}
+
+.logo-dashboard, .logo-form {
+    width: 10%;
+}
+
+.nav-dashboard {
+    display: flex;
+    gap: 4rem;
+}
+
+.nav-dashboard a,
+.return-button-form {
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.4rem;
+    padding: 1rem 1rem;
+    border-radius: 0.8rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.return-billing {
+    text-decoration: none;
+    color: white;
+    background-color: #FF4500;
+    font-weight: 700;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    border-radius: 0.8rem;
+    transition: background-color 0.3s ease;
+}
+
+.billing-dwl {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    font-weight: 700;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    border-radius: 0.8rem;
+    transition: background-color 0.3s ease;
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+.nav-dashboard a:hover,
+.return-button-form:hover,
+.return-billing:hover{
+    background-color: grey;
+}
+
+.billing-dwl:hover {
+    background-color: #FF6000;
+}
+
+.main-dashboard {
+    background-color: #f0f0f0;
+    padding: 5rem;
+}
+
+.rdv-filter_container {
+    border-radius: 0.8rem;
+    background: #333;
+    padding: 1.6rem;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+.select-date-container {
+    display: flex;
+    font-size: 24px;
+    text-align: end;
+    align-items: end;
+    justify-content: end;
+    gap:1rem;
+}
+
+.button-filterbydate {
+    background-color: white;
+    font-size: 20px;
+    padding: 6px;
+}
+.button-filterbydate i {
+    color: #FF6000;
+}
+.button-filterbydate:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+#selected-date {
+    padding: 10px;
+}
+#selected-date:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+.form-filter-dashboard {
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    gap:1rem;
+}
+.link-see-all-container {
+    text-align: end;
+}
+.link-see-all-container a {
+    text-align: end;
+    color: #FF6000;
+    text-decoration: none;
+}
+
+.link-see-all-container a:hover {
+    text-decoration: solid 1px #000000;
+    color:black;
+    cursor: pointer;
+}
+.rdv-all-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 4rem;
+}
+
+.rdv-card_container {
+    min-width: 20%;
+    max-width: 45%;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.rdv-date {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #FF6000;
+}
+
+.rdv-card {
+    padding-top: 2rem;
+    font-size: larger;
+}
+
+.rdv-button {
+    border: none;
+    background-color: #FF6000;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rdv-button:hover {
+    background-color: #FF4500;
+}
+
+.rdv-button-modifier{
+    border: none;
+    background-color: #FF6000;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    margin-top: 1rem;
+}
+.rdv-button-modifier:hover {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* modal in dashboard.html */
+
+.modal-dashboard {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 90%;
+    color: #333;
+    border-radius: 0.8rem;
+    padding: 3rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.closebuttonmodal_container {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+.closebutton_modal {
+    border: none;
+    color: #333;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+
+}
+
+.closebutton_modal:hover {
+    transform: scale(1.1);
+}
+
+.main-container_modal {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.aside-modal {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    width: 50%;
+}
+
+.section-modal {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap:4rem;
+}
+
+.section-modal-subcontainer {
+    width: 100%;
+}
+
+.orange-bg {
+    background-color: #FF6000;
+    color: #fff;
+    padding: 1.6rem 3.2rem;
+    border-radius: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.cutted-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.half-div-container {
+    display: flex;
+    flex-direction: column;
+    color: #333;
+    margin-top: 2rem;
+}
+
+.label-modal {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.data-modal {
+    font-weight: 700;
+    color: #FF6000;
+    background-color: #f0f0f0;
+    padding: 1.6rem;
+    font-size: 1.4rem;
+}
+
+.button-modal {
+    border: none;
+    padding: 1rem 1.2rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    width: 100%;
+    background-color: #FF6000;
+    color: #fff;
+}
+
+.link-in-modal {
+    width: 100%;
+}
+
+#delete-button:hover {
+    background-color: #d63031;
+    color: #fff;
+}
+
+#invoice-button:hover {
+    background-color: #808080;
+    color: #fff;
+}
+
+.button-modal:hover {
+    transform: scale(1.1);
+}
+
+
+/* add_rdv.html */
+
+.header-form {
+    display: flex;
+    height: 10%;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0e0c0a;
+    color: #fff;
+}
+
+.logo-form {
+    width: 12%;
+}
+
+.main-form-add-rdv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    padding-inline:100px;
+}
+
+.form_title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FF6000;
+    margin-bottom: 1.4rem;
+    text-align: center;
+}
+
+.form-container {
+    width: 70%;
+}
+
+.form-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.input-date{
+    padding: 1.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 0.5rem;
+    margin-bottom: 0.8rem;
+    width: 100%;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    height: 1rem;
+}
+
+.submit-form-button_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.submit-rdv-button {
+    border: none;
+    background-color: #FF6000;
+    color: #fff;
+    padding: 1.2rem 2.4rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-rdv-button:hover {
+    background-color: #FF4500;
+}
+
+.signup-confirmation-message {
+    color: #3498db;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+/* history.html */
+
+.history-filter_container {
+    margin-bottom: 2rem;
+}
+
+.table-history {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-history th {
+    color: #fff;
+    padding: 1rem;
+    text-align: left;
+}
+.header-table-items {
+    background-color: #FF6000;
+}
+.table-history td, .table-history th {
+    border: 1px solid #ddd;
+    padding: 1rem;
+}
+
+.lign-table:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.button-column {
+    text-align: center;
+}
+
+.button-table {
+    background-color: #FF6000;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-table:hover {
+    background-color: #FF4500;
+}
+
+.pagination-container {
+    text-align: end;
+    width: 100%;
+    font-size: 22px;
+    display: flex;
+    gap:25px;
+    justify-content: end;
+    align-items: center;
+    align-content: center
+;
+}
+
+.pagination-container a {
+    text-decoration: underline #FF6000;
+    color:#FF6000;
+}
+
+.pagination-container a:hover {
+    text-decoration: underline #000000;
+    color:#000000;
+}
+.current-page-link {
+    color:#000000;
+}
+
+
+/* Modal dans history.html */
+
+.modal-history {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 90%;
+    color: #333;
+    border-radius: 0.8rem;
+    padding: 3rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.closebuttonmodal_container {
+    text-align: right;
+}
+
+.closebutton_modal {
+    background-color: transparent;
+    border: none;
+    color: #FF6000;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.closebutton_modal:hover {
+    color: #FF4500;
+}
+
+/* billing_form */
+
+.selector_in_billing {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FF6000;
+    margin-bottom: 1.4rem;
+    text-align: center;
+    border: none;
+    background-color: #f0f0f0;
+    margin-left:10px;
+}
+
+
+
+.form-subcontainer {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    width: 50%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    gap:20px;
+    justify-content: space-between;
+}
+
+.form-group input {
+    height: 30px;
+}
+
+.items-container {
+    width: 50%;
+}
+
+.btn-submit {
+    border: none;
+    background: black;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 0.8rem;
+}
+
+.btn-submit:hover {
+    background-color: #FF4500;
+}
+
+.btn-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-in-billing-form select{
+    padding:5px;
+    height: 30px;
+    width: 100px;
+}
+
+.btn-add-item, .btn-delete-item {
+    padding:5px;
+    height: 30px;
+    width: 140px;
+    margin-top: 10px;
+}
+
+.btn-add-item {
+    margin-bottom: 20px;
+}
+
+.btn-delete-item {
+    background-color: #ff0404;
+    color:white;
+    border: 1px solid black;
+}
+
+.btn-delete-item:hover {
+    background-color: darkred;
+}
+
+.new-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.new-item div{
+    display: flex;
+    gap:8px;
+}
+
+
+.form-container {
+    display: flex;
+    flex-direction: row;
+    gap:30px;
+}
+
+.title-container-billing {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.title-options {
+    margin-bottom: 20px;
+}

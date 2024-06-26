@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Facture</title>
+    <link rel="stylesheet" href="{{ asset('billing.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .billing-logo {
+            width: 30%;
+            max-height: 120px;
+            object-fit: contain;
+        }
+
+        .garage-data {
+            width: 40%;
+            text-align: left;
+        }
+
+        .client-details-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .client-details {
+            width: 250px;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .client-details p {
+            text-transform: uppercase;
+        }
+
+
+        .text-billing {
+            margin: 5px 0;
+        }
+
+        .car-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        .car-table th {
+            background-color: #ded9d9;
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .car-table td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .items-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .items-table th, .items-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .total-table {
+            width: 40%;
+            border-collapse: collapse;
+            font-size: 16px;
+            margin-left: auto;
+            margin-top: 20px;
+        }
+
+        .total-table td {
+            padding: 8px;
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        .net-to-pay {
+            background-color: #ddd;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+        footer p {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body class="page">
+
+<div class="header">
+    <div class="garage-data">
+        <p class="text-billing">SARL LES ORMETTES</p>
+        <p class="text-billing">BAR, SALLE DE BILLARDS</p>
+        <p class="text-billing">SALLE DE JEUX, MINI-BOWLINGS</p>
+        <p class="text-billing">5, ANCIENNE ROUTE DE CAEN</p>
+        <p class="text-billing">14390 CABOURG</p>
+        <p class="text-billing">Tel: 06.81.56.78.82</p>
+    </div>
+</div>
+<div class="client-details-container">
+    <div class="client-details">
+        <p class="text-billing"><strong>{{ billing.clientName }}</strong></p>
+        <p class="text-billing"><strong>{{ billing.clientAddress }}</strong></p>
+    </div>
+    <p>{{ billing.status }} N° {{ billing.id }}</p>
+</div>
+
+<p class="text-billing">
+    {% if billing.status == 'DEVIS' %}
+        Établi le {{ billing.startDate|date('d/m/Y') }}
+    {% elseif billing.status == 'FACTURE' %}
+        Établie le {{ billing.startDate|date('d/m/Y') }}
+    {% else %}
+        Établi(e) le {{ billing.startDate|date('d/m/Y') }}
+    {% endif %}
+</p>
+
+<footer>
+    <p>Règlement comptant par virement.</p>
+    <p>SIRET : 377.647.615 00014 – R.C.S. CAEN – Code NAF 9329Z</p>
+</footer>
+
+</body>
+</html>

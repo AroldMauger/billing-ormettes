@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Garage Trempu - Gestion des factures</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+    <link rel="stylesheet" href="{{ asset('app.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;500;700&family=Noto+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/70fabb1b7e.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('[data-prototype]');
+            const addButton = document.createElement('button');
+            addButton.type = 'button';
+            addButton.textContent = 'Ajouter une option';
+            addButton.classList.add('btn-add-item');
+            container.appendChild(addButton);
+
+            let index = container.querySelectorAll('.form-group').length;
+
+            addButton.addEventListener('click', function() {
+                const prototype = container.dataset.prototype;
+                const newItem = prototype.replace(/__name__/g, index);
+                const div = document.createElement('div');
+                div.innerHTML = newItem;
+                div.classList.add('new-item');
+                const deleteButton = document.createElement('button');
+                deleteButton.type = 'button';
+                deleteButton.textContent = 'Supprimer';
+                deleteButton.classList.add('btn-delete-item');
+                div.appendChild(deleteButton);
+                container.insertBefore(div, addButton);
+                deleteButton.addEventListener('click', function() {
+                    div.remove();
+                });
+                index++;
+            });
+
+            container.querySelectorAll('.form-group').forEach(function(group) {
+                const deleteButton = document.createElement('button');
+                deleteButton.type = 'button';
+                deleteButton.textContent = 'Supprimer';
+                deleteButton.classList.add('btn-delete-item');
+                group.appendChild(deleteButton);
+                deleteButton.addEventListener('click', function() {
+                    group.remove();
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<header class="header-form">
+    <img class="logo-form" src="{{ asset('logo-ormettes.png') }}" alt="logo des Ormettes">
+    <a href="/dashboard" class="return-button-form">Tableau de bord</a>
+</header>
+
+<main class="main-form">
+    <div class="title-container-billing">
+        <h1 class="form-title">Créer une nouvelle facture</h1>
+    </div>
+
+    <form method="post">
+        {{ form_start(form) }}
+
+        <section class="billing-section">
+            <div class="form-container">
+                <div class="form-subcontainer">
+                    <div class="form-group">
+                        <label for="form-status" class="form-label">Status</label>
+                        <div class="btn-in-billing-form">
+                            {{ form_widget(form.status) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-client_name" class="form-label">Nom du client</label>
+                        {{ form_widget(form.client_name) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="form-client_address" class="form-label">Adresse</label>
+                        {{ form_widget(form.client_address) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="form-start_date" class="form-label">Date de début</label>
+                        {{ form_widget(form.start_date) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="form-end_date" class="form-label">Date de fin</label>
+                        {{ form_widget(form.end_date) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="form-service_name" class="form-label">Nom du service</label>
+                        {{ form_widget(form.service_name) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="form-tva" class="form-label">TVA</label>
+                        {{ form_widget(form.tva) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="form-number_of_people" class="form-label">Nombre de personnes</label>
+                        {{ form_widget(form.number_of_people) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="form-price_per_person" class="form-label">Prix par personne</label>
+                        {{ form_widget(form.price_per_person) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="form-discount" class="form-label">Réduction</label>
+                        {{ form_widget(form.discount) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="form-gift" class="form-label">Cadeau</label>
+                        {{ form_widget(form.gift) }}
+                    </div>
+                </div>
+
+                <div id="options-container" class="items-container" data-prototype="{{ form_widget(form.options.vars.prototype)|e('html_attr') }}">
+                    <h3 class="title-options">Options</h3>
+                    {% for optionForm in form.options %}
+                        <div class="option">
+                            {{ form_widget(optionForm.option_name) }}
+                            {{ form_widget(optionForm.unit_price) }}
+                            <button type="button" class="btn btn-danger btn-sm" onclick="removeOption(this)">Supprimer</button>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </section>
+
+        <div class="btn-form-container">
+            <button type="submit" class="btn-submit">Soumettre</button>
+        </div>
+
+        {{ form_end(form) }}
+    </form>
+</main>
+
+</body>
+</html>
