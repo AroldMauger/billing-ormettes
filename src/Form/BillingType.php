@@ -40,6 +40,9 @@ class BillingType extends AbstractType
             ->add('payment', TextType::class, [
                 'required' => false
             ])
+            ->add('observation', TextType::class, [
+                'required' => false
+            ])
             ->add('options', CollectionType::class, [
                 'entry_type' => OptionType::class,
                 'entry_options' => ['label' => false],

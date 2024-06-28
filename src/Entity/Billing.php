@@ -58,6 +58,9 @@ class Billing
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $payment = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $observation = null;
+
     public function __construct()
     {
         $this->options = new ArrayCollection();
@@ -238,6 +241,18 @@ class Billing
     public function setPayment(?string $payment): static
     {
         $this->payment = $payment;
+
+        return $this;
+    }
+
+    public function getObservation(): ?string
+    {
+        return $this->observation;
+    }
+
+    public function setObservation(?string $observation): static
+    {
+        $this->observation = $observation;
 
         return $this;
     }
