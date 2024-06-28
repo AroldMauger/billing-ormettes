@@ -137,6 +137,9 @@
             display: inline-block;
             margin: 0 auto;
         }
+        .payment {
+            font-size: 18px;
+        }
     </style>
 </head>
 <body class="page">
@@ -299,7 +302,9 @@
 </table>
 
 <footer>
-    <p>Règlement comptant par virement.</p>
+    {% if billing.payment %}
+        <p class="payment">{{ billing.payment }}</p>
+    {% endif %}
     <p>SIRET : 377.647.615 00014 – R.C.S. CAEN – Code NAF 9329Z</p>
 </footer>
 

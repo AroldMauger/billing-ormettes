@@ -37,6 +37,9 @@ class BillingType extends AbstractType
             ->add('gift', TextType::class, [
                 'required' => false
             ])
+            ->add('payment', TextType::class, [
+                'required' => false
+            ])
             ->add('options', CollectionType::class, [
                 'entry_type' => OptionType::class,
                 'entry_options' => ['label' => false],

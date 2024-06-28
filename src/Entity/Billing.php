@@ -55,6 +55,9 @@ class Billing
     #[ORM\OneToMany(targetEntity: Options::class, mappedBy: 'invoice_id')]
     private Collection $options;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $payment = null;
+
     public function __construct()
     {
         $this->options = new ArrayCollection();
@@ -223,6 +226,18 @@ class Billing
                 $option->setBillingId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPayment(): ?string
+    {
+        return $this->payment;
+    }
+
+    public function setPayment(?string $payment): static
+    {
+        $this->payment = $payment;
 
         return $this;
     }
