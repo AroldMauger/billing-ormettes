@@ -61,6 +61,12 @@ class Billing
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $observation = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $code_postal = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $city = null;
+
     public function __construct()
     {
         $this->options = new ArrayCollection();
@@ -253,6 +259,30 @@ class Billing
     public function setObservation(?string $observation): static
     {
         $this->observation = $observation;
+
+        return $this;
+    }
+
+    public function getCodePostal(): ?string
+    {
+        return $this->code_postal;
+    }
+
+    public function setCodePostal(string $code_postal): static
+    {
+        $this->code_postal = $code_postal;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): static
+    {
+        $this->city = $city;
 
         return $this;
     }

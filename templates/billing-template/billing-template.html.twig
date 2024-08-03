@@ -185,19 +185,13 @@
     <div class="client-details">
         <p class="text-billing"><strong>{{ billing.clientName }}</strong></p>
         <p class="text-billing"><strong>{{ billing.clientAddress }}</strong></p>
+        <p class="text-billing"><strong>{{ billing.codePostal }}, {{ billing.city }}</strong></p>
+
     </div>
 </div>
 
-<p class="text-billing">
-    {{ billing.status }} N° {{ billing.id }}
-    {% if billing.status == 'DEVIS' %}
-        établi le {{ "now"|date('d/m/Y') }}
-    {% elseif billing.status == 'FACTURE' %}
-        établie le {{ "now"|date('d/m/Y') }}
-    {% else %}
-        établi(e) le {{ "now"|date('d/m/Y') }}
-    {% endif %}
-</p>
+<p class="text-billing">{{ billing.status }} N° {{ billing.id }}</p>
+<p class="text-billing">Date d'émission : {{ "now"|date('d/m/Y') }}</p>
 
 
 <div>
@@ -207,21 +201,15 @@
     {% set startDate = billing.startDate|date('Y-m-d H:i:s') %}
     {% set endDate = billing.endDate|date('Y-m-d H:i:s') %}
 
-    {% set jourSemaine = startDate|date('l') %}
-    {% set jour = startDate|date('d') %}
-    {% set mois = startDate|date('F') %}
+    {% set jourStart = startDate|date('d') %}
+    {% set moisStart = startDate|date('F') %}
+    {% set anneeStart = startDate|date('Y') %}
     {% set heureDebut = startDate|date('H:i') %}
-    {% set heureFin = endDate|date('H:i') %}
 
-    {% set joursSemaine = {
-        'Monday': 'lundi',
-        'Tuesday': 'mardi',
-        'Wednesday': 'mercredi',
-        'Thursday': 'jeudi',
-        'Friday': 'vendredi',
-        'Saturday': 'samedi',
-        'Sunday': 'dimanche'
-    } %}
+    {% set jourEnd = endDate|date('d') %}
+    {% set moisEnd = endDate|date('F') %}
+    {% set anneeEnd = endDate|date('Y') %}
+    {% set heureFin = endDate|date('H:i') %}
 
     {% set moisLettres = {
         'January': 'janvier',
@@ -238,13 +226,18 @@
         'December': 'décembre'
     } %}
 
-    Le {{ joursSemaine[jourSemaine] }} {{ jour }} {{ moisLettres[mois] }} de {{ heureDebut }} à {{ heureFin }}
+    {% if jourStart == jourEnd and moisStart == moisEnd and anneeStart == anneeEnd %}
+        Le {{ jourStart }} {{ moisLettres[moisStart] }} {{ anneeStart }} de {{ heureDebut }} à {{ heureFin }}
+    {% else %}
+        Du {{ jourStart }} {{ moisLettres[moisStart] }} {{ anneeStart }} au {{ jourEnd }} {{ moisLettres[moisEnd] }} {{ anneeEnd }}
+    {% endif %}
 </p>
+
 
 <table class="items-table">
     <thead class="table-in-pdf">
     <tr>
-        <th>Nombre de personnes</th>
+        <th>Nb. de personnes / Location Jeux</th>
         <th>Prix Unitaire (forfait jeux)</th>
         <th>Montant HT</th>
     </tr>
@@ -297,6 +290,12 @@
     {% set netAPayer = totalTTC - reduction %}
 {% endif %}
 
+{% set totalHT = totalHT|number_format(2, '.', '') %}
+{% set tva = tva|number_format(2, '.', '') %}
+{% set totalTTC = totalTTC|number_format(2, '.', '') %}
+{% set netAPayer = netAPayer|number_format(2, '.', '') %}
+
+
 <div class="tables-container">
     {% if billing.observation %}
     <table class="observations-table">
@@ -338,7 +337,7 @@
 
 <footer>
     {% if billing.payment %}
-        <p class="payment">{{ billing.payment }}</p>
+        <p class="payment">Mode de règlement : {{ billing.payment }}</p>
     {% endif %}
     <p>SIRET : 377.647.615 00014 – R.C.S. CAEN – Code NAF 9329Z</p>
 </footer>

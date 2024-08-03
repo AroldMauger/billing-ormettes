@@ -79,8 +79,16 @@
                         {{ form_widget(form.client_name) }}
                     </div>
                     <div class="form-group">
-                        <label for="form-client_address" class="form-label">Adresse</label>
+                        <label for="form-client_address" class="form-label">Adresse (rue, avenue, etc)</label>
                         {{ form_widget(form.client_address) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="form-client_address" class="form-label">Code Postal</label>
+                        {{ form_widget(form.code_postal) }}
+                    </div>
+                    <div class="form-group">
+                        <label for="form-client_address" class="form-label">Ville</label>
+                        {{ form_widget(form.city) }}
                     </div>
                     <div class="form-group">
                         <label for="form-start_date" class="form-label">Date de début</label>
@@ -99,11 +107,11 @@
                         {{ form_widget(form.tva) }}
                     </div>
                     <div class="form-group">
-                        <label for="form-number_of_people" class="form-label">Nombre de personnes</label>
+                        <label for="form-number_of_people" class="form-label">Nb. de personnes / Location jeux</label>
                         {{ form_widget(form.number_of_people) }}
                     </div>
                     <div class="form-group">
-                        <label for="form-price_per_person" class="form-label">Prix par personne</label>
+                        <label for="form-price_per_person" class="form-label">Prix unitaire (par personne/par jeu)</label>
                         {{ form_widget(form.price_per_person) }}
                     </div>
                     <div class="form-group">

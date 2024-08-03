@@ -25,6 +25,8 @@ class BillingType extends AbstractType
             ])
             ->add('client_name', TextType::class) // Utilisation de 'client_name' au lieu de 'clientName'
             ->add('client_address', TextType::class) // Utilisation de 'client_address' au lieu de 'clientAddress'
+            ->add('code_postal', TextType::class) // Utilisation de 'client_address' au lieu de 'clientAddress'
+            ->add('city', TextType::class) // Utilisation de 'client_address' au lieu de 'clientAddress'
             ->add('start_date', DateTimeType::class) // Utilisation de 'start_date' au lieu de 'startDate'
             ->add('end_date', DateTimeType::class) // Utilisation de 'end_date' au lieu de 'endDate'
             ->add('service_name', TextType::class) // Utilisation de 'service_name' au lieu de 'serviceName'
