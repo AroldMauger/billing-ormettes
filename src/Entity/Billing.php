@@ -67,6 +67,9 @@ class Billing
     #[ORM\Column(length: 255)]
     private ?string $city = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $second_name = null;
+
     public function __construct()
     {
         $this->options = new ArrayCollection();
@@ -283,6 +286,18 @@ class Billing
     public function setCity(string $city): static
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    public function getSecondName(): ?string
+    {
+        return $this->second_name;
+    }
+
+    public function setSecondName(string $second_name): static
+    {
+        $this->second_name = $second_name;
 
         return $this;
     }

@@ -24,6 +24,9 @@ class BillingType extends AbstractType
                 ],
             ])
             ->add('client_name', TextType::class) // Utilisation de 'client_name' au lieu de 'clientName'
+            ->add('second_name', TextType::class, [
+                'required' => false
+            ])
             ->add('client_address', TextType::class) // Utilisation de 'client_address' au lieu de 'clientAddress'
             ->add('code_postal', TextType::class) // Utilisation de 'client_address' au lieu de 'clientAddress'
             ->add('city', TextType::class) // Utilisation de 'client_address' au lieu de 'clientAddress'

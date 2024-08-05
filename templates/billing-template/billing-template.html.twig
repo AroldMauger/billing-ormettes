@@ -184,6 +184,9 @@
 <div class="client-details-container">
     <div class="client-details">
         <p class="text-billing"><strong>{{ billing.clientName }}</strong></p>
+        {% if billing.secondName is not empty %}
+        <p class="text-billing"><strong>{{ billing.secondName }}</strong></p>
+        {% endif %}
         <p class="text-billing"><strong>{{ billing.clientAddress }}</strong></p>
         <p class="text-billing"><strong>{{ billing.codePostal }}, {{ billing.city }}</strong></p>
 
